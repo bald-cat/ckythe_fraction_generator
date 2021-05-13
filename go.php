@@ -2,6 +2,16 @@
 $count = $_GET['count'];
 
 $i = 1;
+$image = rand(1, 6);
+$buildingTextArr = [
+        1 => 'Количество территорий с тунелями, соседствующими с вашими зданиями. Каждый тунель учитывается только 1 раз.',
+        2 => 'Количество озер, соседствующих с вашими зданиями. Каждое озеро учитывается только 1 раз.',
+        3 => 'Количество территорий с символами приключений, соседствующих с вашими зданиями. Каждое приключение учитывается только 1 раз.',
+	    4 => 'Количество территорий с тунелями и вашими зданиями.',
+        5 => 'Количество ваших зданий, построенных в один ряд. Учитывается только самый длинный ряд',
+        6 => 'Количество тундр и ферм с вашими зданиями'
+];
+$buildingText = $buildingTextArr[$image];
 
 require_once 'Nations.php';
 require_once 'Tabs.php';
@@ -47,15 +57,22 @@ foreach ($resultArr as $result) {
 </head>
 <body>
 
-<div class="fixed-top">
-        <div class="row">
+            <div class="row">
                 <a href="count.php" class="btn btn-dark btn-lg btn-block" role="button" aria-disabled="true">Поменять кол-во игроков</a>
-        </div>
+            </div>
 
             <div class="row">
                 <a href="go.php?count=<?php echo $count; ?>" class="btn btn-danger btn-lg btn-block" role="button" aria-disabled="true">Генерировать заново</a>
             </div>
-</div>
+
+            <div class="alert alert-danger" role="alert">
+                <div class="text-center">
+                    <img src="/images/building/<?= $image ?>.png" class="rounded" alt="...">
+                </div>
+                <div class="text-center">
+				<?php echo $buildingText; ?>
+                </div>
+            </div>
 
 <div class="fixed-bottom">
 <table class="table table-dark">
