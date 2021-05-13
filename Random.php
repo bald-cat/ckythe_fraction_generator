@@ -36,29 +36,37 @@ class Random
 	}
 
 	public function random($count) {
+
 		$nation = $this->arrNations;
 		$tabs = $this->arrTabs;
 
 		$arrRandom = array();
 		for($i = 1; $i <= $count; $i++){
+
 			$indexNation = array_rand($nation);
 			$indexTab = array_rand($tabs);
+
 			$randomNation = $nation[$indexNation];
 			$randomTab = $tabs[$indexTab];
-			if(($randomNation != 0 and $randomTab != 0) or ($randomNation != 1 and $randomTab != 1)){
-				$arrRandom[] = [$randomNation => $randomTab];
-				unset($nation[$indexNation]);
-				unset($tabs[$indexTab]);
-			} else{
+
+			if($randomNation == 1 and $randomTab == 1 or $randomNation == 2 and $randomTab == 2){
 				$tabsAlternative = $tabs;
 				unset($tabsAlternative[$randomTab]);
 				$alternativeIndex = array_rand($tabsAlternative);
-				$arrRandom[] = [$randomNation => $randomTab[$alternativeIndex]];
+				$arrRandom[] = [$randomNation => $alternativeIndex];
 				unset($nation[$indexNation]);
 				unset($tabs[$alternativeIndex]);
+			} else{
+				$arrRandom[] = [$randomNation => $randomTab];
+				unset($nation[$indexNation]);
+				unset($tabs[$indexTab]);
 			}
 		}
 
 		return $arrRandom;
+	}
+
+	public function getRandom(){
+		return $this->arrRandom;
 	}
 }

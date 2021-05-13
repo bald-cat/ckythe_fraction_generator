@@ -8,5 +8,5 @@ $nation = new Nations(5);
 $tabs = new Tabs(5);
 $random = new Random(5);
 
-var_dump($random->arrRandom);
+var_dump($random->getRandom());
 

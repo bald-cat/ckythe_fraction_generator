@@ -18,62 +18,14 @@
 </head>
 <body>
 <?php
+
+require_once 'Nations.php';
+require_once 'Tabs.php';
+require_once 'Random.php';
+
 $count = $_GET['count'];
 
-$nations = [0, 1, 2, 3, 4];
-$nationsFull = [
-	0 => 'Северное королевство',
-	1 => 'Саксонская империя',
-	2 => 'республика Поляния',
-	3 => 'Крымское ханство',
-	4 => 'Союз Русвет'
-];
 
-$tabs = [0, 1, 2, 3, 4];
-$tabsFull = [
-	0 => 'Технический',
-	1 => 'Промышленный',
-	2 => 'Патриотический',
-	3 => 'Фермерский',
-	4 => 'Cтроительный'
-];
-
-$playersArr = [];
-
-for ($i = 1; $i <= $count; $i++) {
-	$playersArr[] = $i;
-}
-
-$resultArr = [];
-foreach ($playersArr as $player) {
-	$randomNation = array_rand($nations);
-	$randomTabs = array_rand($tabs);
-
-	if ($randomNation != 3 and $randomTabs != 2 or $randomNation != 4 and $randomTabs != 1) {
-		$resultArr[] = [$randomNation => $randomTabs];
-
-		unset($playersArr[$player]);
-		unset($nations[$randomNation]);
-		unset($tabs[$randomTabs]);
-	} else {
-	    $alternative = [1, 3, 5];
-	    $alternativeRandom = array_rand($alternative);
-		$resultArr[] = [$randomNation => $alternativeRandom];
-
-		unset($playersArr[$player]);
-		unset($nations[$alternativeRandom - 1]);
-		unset($tabs[$alternativeRandom]);
-
-		if($alternativeRandom == 1){
-		    unset($alternative[$alternativeRandom - 1]);
-        } elseif($alternativeRandom == 3){
-		    unset($alternative[$alternativeRandom - 2]);
-        } elseif($alternativeRandom == 5){
-			unset($alternative[$alternativeRandom - 3]);
-        }
-
-    }
-}
 ?>
 <div class="fixed-top">
 
@@ -102,6 +54,16 @@ foreach ($playersArr as $player) {
     <tbody>
 <?php
 $i = 1;
+
+$random = new Random($count);
+$resultArr = $random->getRandom();
+
+$nations = new Nations($count);
+$nationsFull = $nations->getArrNations();
+
+$tabs = new Tabs($count);
+$tabsFull = $tabs->getArrTabs();
+
 foreach ($resultArr as $result){
     foreach ($result as $key => $value){
 		$resultNation = $nationsFull[$key];
