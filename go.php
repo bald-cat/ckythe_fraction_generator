@@ -1,3 +1,32 @@
+<?php
+$count = $_GET['count'];
+
+$i = 1;
+
+require_once 'Nations.php';
+require_once 'Tabs.php';
+require_once 'Random.php';
+
+$random = new Random($count);
+$resultArr = $random->getRandom();
+
+$nations = new Nations();
+$nationsFull = $nations->getArrNations();
+
+$tabs = new Tabs();
+$tabsFull = $tabs->getArrTabs();
+
+foreach ($resultArr as $result) {
+	foreach ($result as $value => $key) {
+		if ($key != null and $value != null) {
+		} else {
+			$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+			header("Location: $url");
+		}
+	}
+}
+?>
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -17,18 +46,8 @@
     </style>
 </head>
 <body>
-<?php
 
-require_once 'Nations.php';
-require_once 'Tabs.php';
-require_once 'Random.php';
-
-$count = $_GET['count'];
-
-
-?>
 <div class="fixed-top">
-
         <div class="row">
                 <a href="count.php" class="btn btn-dark btn-lg btn-block" role="button" aria-disabled="true">Поменять кол-во игроков</a>
         </div>
@@ -36,10 +55,6 @@ $count = $_GET['count'];
             <div class="row">
                 <a href="go.php?count=<?php echo $count; ?>" class="btn btn-danger btn-lg btn-block" role="button" aria-disabled="true">Генерировать заново</a>
             </div>
-
-
-
-
 </div>
 
 <div class="fixed-bottom">
@@ -53,16 +68,6 @@ $count = $_GET['count'];
     </thead>
     <tbody>
 <?php
-$i = 1;
-
-$random = new Random($count);
-$resultArr = $random->getRandom();
-
-$nations = new Nations($count);
-$nationsFull = $nations->getArrNations();
-
-$tabs = new Tabs($count);
-$tabsFull = $tabs->getArrTabs();
 
 foreach ($resultArr as $result){
     foreach ($result as $key => $value){
@@ -76,7 +81,9 @@ foreach ($resultArr as $result){
         <?php
         $i++;
     }
-}?>
+}
+
+?>
     </tbody>
 </table>
 </div>
