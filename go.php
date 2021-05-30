@@ -1,5 +1,7 @@
 <?php
 $count = $_GET['count'];
+$name = $_GET['name'];
+$uri = $_SERVER['REQUEST_URI'];
 $i = 1;
 
 require_once 'Nations.php';
@@ -70,7 +72,13 @@ $nationIconArr = [
             </div>
 
             <div class="row">
-                <a href="go.php?count=<?php echo $count; ?>" class="btn btn-danger btn-lg btn-block" role="button" aria-disabled="true">Генерировать заново</a>
+                <a href="<?= $uri ?>" class="btn btn-danger btn-lg btn-block" role="button" aria-disabled="true">Генерировать заново</a>
+            </div>
+
+            <div class="row">
+                <a href="https://music.youtube.com/playlist?list=OLAK5uy_lCIfaJ6xnDY_5YWGmWgUctYkBa_sFH-v0&feature=share" target="_blank" class="btn btn-dark btn-lg btn-block" role="button" aria-disabled="true">Эпичная музыка<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+                    </svg></a>
             </div>
 
             <div class="alert alert-danger" role="alert">
@@ -100,7 +108,7 @@ foreach ($resultArr as $result){
 		$resultTab = $tabsFull[$value];
 		$nationIcon = $nationIconArr[$key]?>
         <tr>
-            <th scope="row"><?php echo "Игрок $i"; ?></th>
+            <th scope="row"><?php echo $name[$i - 1]; ?></th>
             <td><?php echo $nationIcon . ' '. $resultNation; ?></td>
             <td><?php echo $resultTab; ?></td>
         </tr>
