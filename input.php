@@ -25,8 +25,24 @@ if(empty($_GET)){
 <?php
     $count = $_GET['count'];
 ?>
-<div class="alert alert-danger" role="alert">
-    Впишите имена игроков в поля.
+
+<div class="container">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+            <div class="alert alert-danger" role="alert">
+                Впишите имена игроков в поля.
+            </div>
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
 </div>
 <div class="container">
     <div class="row">
@@ -39,7 +55,7 @@ if(empty($_GET)){
 				for($i = 0; $i < $count; $i++){ ?>
                     <div class="form-group>">
                         <p></p>
-                        <input type="text" class="form-control" name="name[]">
+                        <input type="text" placeholder="Имя игрока #<?php echo $i + 1;?>" class="form-control" name="name[]">
                         <p></p>
                     </div>
 				<?php } ?>
