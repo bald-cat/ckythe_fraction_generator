@@ -1,3 +1,9 @@
+<?php
+if(empty($_GET)){
+	header('Location: index.php');
+}
+?>
+
 <!doctype html>
 <html lang="ru">
 <head>

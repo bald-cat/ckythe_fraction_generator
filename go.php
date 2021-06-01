@@ -1,4 +1,9 @@
 <?php
+
+if (empty($_GET)) {
+	header('Location: index.php');
+}
+
 $count = $_GET['count'];
 $name = $_GET['name'];
 $uri = $_SERVER['REQUEST_URI'];

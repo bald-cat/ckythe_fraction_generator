@@ -1,3 +1,9 @@
+<?php
+if(empty($_GET)){
+    header('Location: index.php');
+}
+?>
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -16,10 +22,7 @@
     </style>
 </head>
 <body>
-<div class="alert alert-danger" role="alert">
-    Закрепите за каждым игроком порядковый номер, от 1 до количества игроков! Делать функционал для вписывания имен было леньки :)
-    Да и вам потом будет леньки каждый раз их вписывать!
-</div>
+
         <div class="fixed-bottom">
             <div class="p-3 mb-2 bg-secondary text-white">
                 <div class="container">

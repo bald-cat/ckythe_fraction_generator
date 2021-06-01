@@ -25,7 +25,7 @@
                             <h2>Собираешься играть с друзьями в «Серп»?</h2>
                         </div>
                         <div class="col">
-                            <a href="count.php" class="btn btn-danger btn-lg" role="button" aria-disabled="true">Да!</a>
+                            <a href="count.php?play=yes" class="btn btn-danger btn-lg" role="button" aria-disabled="true">Да!</a>
                             <a href="https://www.crowdgames.ru/collection/serp" class="btn btn-light btn-lg" role="button" aria-disabled="true">Что за «Серп»?</a>
                         </div>
                     </div>
