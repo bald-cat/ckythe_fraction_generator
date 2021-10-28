@@ -14,7 +14,7 @@ class Random
 	}
 
 	public function randomNation($count){
-		$arr = [1, 2, 3, 4, 5];
+		$arr = [1, 2, 3, 4, 5, 6, 7];
 		$arrNations = array();
 		for($i = 1; $i <= $count; $i++){
 			$index = array_rand($arr);
@@ -25,7 +25,7 @@ class Random
 	}
 
 	public function randomTabs($count){
-		$arr = [1, 2, 3, 4, 5];
+		$arr = [1, 2, 3, 4, 5, 6, 7];
 		$arrTabs = array();
 		for($i = 1; $i <= $count; $i++){
 			$index = array_rand($arr);

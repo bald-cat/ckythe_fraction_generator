@@ -48,7 +48,9 @@ $nationIconArr = [
 	2 => "<img src='images/icons/nations/bow.png' width='20' height='20'>",
 	3 => "<img src='images/icons/nations/lion.png' width='20' height='20'>",
 	4 => "<img src='images/icons/nations/wolf.png' width='20' height='20'>",
-	5 => "<img src='images/icons/nations/north.png' width='20' height='20'>"
+	5 => "<img src='images/icons/nations/north.png' width='20' height='20'>",
+	6 => "<img src='images/icons/nations/wolf.png' width='20' height='20'>",
+	7 => "<img src='images/icons/nations/north.png' width='20' height='20'>"
 ];
 ?>
 

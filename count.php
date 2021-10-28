@@ -38,6 +38,8 @@ if(empty($_GET)){
                         <a href="input.php?count=3" class="btn btn-warning btn-lg" role="button" aria-disabled="true">3</a>
                         <a href="input.php?count=4" class="btn btn-dark btn-lg" role="button" aria-disabled="true">4</a>
                         <a href="input.php?count=5" class="btn btn-light btn-lg" role="button" aria-disabled="true">5</a>
+                        <a href="input.php?count=6" class="btn btn-primary btn-lg" role="button" aria-disabled="true">6</a>
+                        <a href="input.php?count=7" class="btn btn-danger btn-lg" role="button" aria-disabled="true">7</a>
                         </div>
                     </div>
                 </div>
